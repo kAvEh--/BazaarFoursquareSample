@@ -22,4 +22,7 @@
     <string name="title_category">CATEGORY</string>
     <string name="title_rating">RATE</string>
     <string name="title_distance">DISTANCE</string>
+
+    <string name="cache_location">cache_location</string>
+    <string name="cache_list_data">cache_list_data</string>
 </resources>
