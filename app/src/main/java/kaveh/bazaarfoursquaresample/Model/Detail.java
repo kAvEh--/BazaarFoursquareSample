@@ -3,10 +3,10 @@ package kaveh.bazaarfoursquaresample.Model;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Search {
+public class Detail {
 
     private Meta meta;
-    private Response response;
+    private ResponseofDetail response;
 
     public Meta getMeta() {
         return meta;
@@ -16,11 +16,11 @@ public class Search {
         this.meta = meta;
     }
 
-    public Response getResponse() {
+    public ResponseofDetail getResponse() {
         return response;
     }
 
-    public void setResponse(Response response) {
+    public void setResponse(ResponseofDetail response) {
         this.response = response;
     }
 }

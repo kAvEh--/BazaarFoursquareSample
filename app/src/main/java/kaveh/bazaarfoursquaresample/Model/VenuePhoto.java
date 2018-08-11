@@ -3,23 +3,50 @@ package kaveh.bazaarfoursquaresample.Model;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Contact {
-    private String phone;
-    private String formattedPhone;
+public class VenuePhoto {
+    private String id;
+    private String prefix;
+    private String suffix;
+    private int width;
+    private int height;
 
-    public String getPhone() {
-        return phone;
+    public String getId() {
+        return id;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getFormattedPhone() {
-        return formattedPhone;
+    public String getPrefix() {
+        return prefix;
     }
 
-    public void setFormattedPhone(String formattedPhone) {
-        this.formattedPhone = formattedPhone;
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

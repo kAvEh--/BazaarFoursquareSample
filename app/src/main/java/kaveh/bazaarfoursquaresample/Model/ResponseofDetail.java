@@ -6,15 +6,15 @@ import java.util.List;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Response {
+public class ResponseofDetail {
 
-    private List<Venue> venues = new ArrayList<>();
+    private VenueDetail venue;
 
-    public List<Venue> getVenues() {
-        return venues;
+    public VenueDetail getVenue() {
+        return venue;
     }
 
-    public void setVenues(List<Venue> venues) {
-        this.venues = venues;
+    public void setVenue(VenueDetail venue) {
+        this.venue = venue;
     }
 }

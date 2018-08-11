@@ -3,11 +3,12 @@ package kaveh.bazaarfoursquaresample.Model;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Categories {
+public class Category {
 
     private String id;
     private String name;
     private Icon icon;
+    private String shortName;
 
     public String getId() {
         return id;
@@ -31,5 +32,13 @@ public class Categories {
 
     public void setIcon(Icon icon) {
         this.icon = icon;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 }

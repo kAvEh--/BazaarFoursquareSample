@@ -3,23 +3,32 @@ package kaveh.bazaarfoursquaresample.Model;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Contact {
-    private String phone;
-    private String formattedPhone;
+public class Price {
+    private String tier;
+    private String message;
+    private String currency;
 
-    public String getPhone() {
-        return phone;
+    public String getTier() {
+        return tier;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTier(String tier) {
+        this.tier = tier;
     }
 
-    public String getFormattedPhone() {
-        return formattedPhone;
+    public String getMessage() {
+        return message;
     }
 
-    public void setFormattedPhone(String formattedPhone) {
-        this.formattedPhone = formattedPhone;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

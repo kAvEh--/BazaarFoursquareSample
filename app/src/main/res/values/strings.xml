@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">BazaarFoursquareSample</string>
     <string name="action_settings">Settings</string>
+
+    //Foursquare Keys
+    <string name="foursquare_client_id" templateMergeStrategy="preserve" translatable="false">
+        EMKSMY4PCKT5AZ1YS5IZ15M0H0NF15KMJUGAQLCRKWBXATNE
+    </string>
+    <string name="foursquare_client_secret" templateMergeStrategy="preserve" translatable="false">
+        4TGEHWUKJWVMK4XJXFJOZVB0153IOIVJXRXHKQWXCKEL1EC1
+    </string>
+
+    <string name="waiting">در حال دریافت اطلاعات …</string>
+
+    <string name="title_activity_venue">VenueActivity</string>
+
+    <string name="venue_id_key">venue_key</string>
+    <string name="venue_distance_key">venue_distance</string>
+
+    <string name="title_address">ADDRESS</string>
+    <string name="title_category">CATEGORY</string>
+    <string name="title_rating">RATE</string>
+    <string name="title_distance">DISTANCE</string>
 </resources>
