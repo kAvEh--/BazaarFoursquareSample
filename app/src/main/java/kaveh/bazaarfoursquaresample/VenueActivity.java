@@ -89,7 +89,8 @@ public class VenueActivity extends AppCompatActivity {
                 else
                     tv_address.setText(response.body().getResponse().getVenue().getLocation().getAddress());
                 tv_rate.setText(String.valueOf(response.body().getResponse().getVenue().getRating()));
-                tv_rate.setTextColor(Color.parseColor("#" + response.body().getResponse().getVenue().getRatingColor()));
+                if (response.body().getResponse().getVenue().getRatingColor() != null)
+                    tv_rate.setTextColor(Color.parseColor("#" + response.body().getResponse().getVenue().getRatingColor()));
                 tv_distance.setText(String.valueOf(distance) + "m");
                 tv_category.setText(response.body().getResponse().getVenue().getCategories().get(0).getName());
             }

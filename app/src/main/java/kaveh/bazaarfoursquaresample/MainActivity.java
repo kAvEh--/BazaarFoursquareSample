@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         setSupportActionBar(toolbar);
 
         updateValuesFromBundle(savedInstanceState);
+        setTitle(getResources().getString(R.string.main_page_title));
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         act = this;
@@ -153,10 +154,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
                     REQUESTING_LOCATION_UPDATES_KEY);
         }
 
-        // ...
-
-        // Update UI to match restored state
-//        updateUI();
+        updateLocation();
     }
 
     private void updateLocation() {
@@ -241,30 +239,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void recyclerViewListClicked(View v, int position) {
-        System.out.println("------------------------->>>>>>>" + position);
         Intent i = new Intent(MainActivity.this, VenueActivity.class);
         i.putExtra(getResources().getString(R.string.venue_id_key), listData.get(position).getId());
         i.putExtra(getResources().getString(R.string.venue_distance_key), listData.get(position).getLocation().getDistance());
