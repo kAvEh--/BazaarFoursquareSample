@@ -1,15 +1,18 @@
 package kaveh.bazaarfoursquaresample.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
 public class Location {
 
     private String address;
+    private String crossStreet;
     private double lat;
     private double lng;
     private double distance;
-    private String crossStreet;
 
     public String getAddress() {
         return address;

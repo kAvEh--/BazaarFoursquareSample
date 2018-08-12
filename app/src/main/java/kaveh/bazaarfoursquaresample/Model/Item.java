@@ -6,15 +6,15 @@ import java.util.Map;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Meta {
+public class Item {
 
-    private Integer code;
+    private Venue venue;
 
-    public Integer getCode() {
-        return code;
+    public Venue getVenue() {
+        return venue;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setVenue(Venue venue) {
+        this.venue = venue;
     }
 }

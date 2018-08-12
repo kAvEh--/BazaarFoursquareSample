@@ -14,14 +14,16 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface FoursquareService {
-    @GET("venues/search/")
+    @GET("venues/explore/")
     Call<Search> requestSearch(
             @Query("client_id") String client_id,
             @Query("client_secret") String client_secret,
             @Query("v") String v,
             @Query("ll") String ll,
             @Query("radius") int radius,
-            @Query("limit") int limit);
+            @Query("limit") int limit,
+            @Query("offset") int offset,
+            @Query("sortByDistance") int sortByDistance);
 
     @GET("venues/{venue_id}")
     Call<Detail> requestVenue(

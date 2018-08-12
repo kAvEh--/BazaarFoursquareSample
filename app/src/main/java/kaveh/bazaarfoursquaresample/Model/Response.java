@@ -8,13 +8,22 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class Response {
 
-    private List<Venue> venues = new ArrayList<>();
+    private int totalResults;
+    private List<Group> groups = new ArrayList<>();
 
-    public List<Venue> getVenues() {
-        return venues;
+    public int getTotalResults() {
+        return totalResults;
     }
 
-    public void setVenues(List<Venue> venues) {
-        this.venues = venues;
+    public void setTotalResults(int totalResults) {
+        this.totalResults = totalResults;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 }

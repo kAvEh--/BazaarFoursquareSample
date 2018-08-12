@@ -1,7 +1,6 @@
-package kaveh.bazaarfoursquaresample;
+package kaveh.bazaarfoursquaresample.Adapter;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
@@ -16,13 +15,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import kaveh.bazaarfoursquaresample.Model.Venue;
+import kaveh.bazaarfoursquaresample.MainActivity;
+import kaveh.bazaarfoursquaresample.Model.Item;
+import kaveh.bazaarfoursquaresample.R;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private List<Venue> venues;
+    private List<Item> venues;
     private MainActivity activity;
 
-    ListAdapter(List<Venue> myDataset, MainActivity act) {
+    public ListAdapter(List<Item> myDataset, MainActivity act) {
         venues = myDataset;
         this.activity = act;
     }
@@ -59,12 +60,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.txtName.setText(venues.get(position).getName());
-        holder.txtDistance.setText(String.valueOf(venues.get(position).getLocation().getDistance()) + "m");
+        holder.txtName.setText((position + 1) + " " + venues.get(position).getVenue().getName());
+        holder.txtDistance.setText(String.valueOf(venues.get(position).getVenue().getLocation().getDistance()) + "m");
         try {
-            final String imageUrl = venues.get(position).getCategories().get(0).getIcon().getPrefix() +
-                    "88" + venues.get(position).getCategories().get(0).getIcon().getSuffix();
-            System.out.println(imageUrl);
+            final String imageUrl = venues.get(position).getVenue().getCategories().get(0).getIcon().getPrefix() +
+                    "88" + venues.get(position).getVenue().getCategories().get(0).getIcon().getSuffix();
             Picasso.get()
                     .load(imageUrl)
                     .networkPolicy(NetworkPolicy.OFFLINE)
