@@ -30,8 +30,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +96,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         updateLocation();
     }
 
+    private void updateValuesFromBundle(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            return;
+        }
+
+        if (savedInstanceState.keySet().contains(REQUESTING_LOCATION_UPDATES_KEY)) {
+            mRequestingLocationUpdates = savedInstanceState.getBoolean(
+                    REQUESTING_LOCATION_UPDATES_KEY);
+        }
+
+        updateLocation();
+    }
+
+    //Offline support methods
     private void checkForCache() {
         String mLocation = sharedPref.getString(getString(R.string.cache_location), "");
         if (mLocation.contains(",")) {
@@ -133,13 +145,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         editor.apply();
     }
 
-    public static Location getLastLocation() {
-        if (MainActivity.lastLocation == null) {
-            MainActivity.lastLocation = new Location("");
-        }
-        return MainActivity.lastLocation;
-    }
-
+    //Search for list of venues in FourSquare
     private void searchVenues(String location, int radius, int limit) {
         final ProgressDialog pbdialog = ProgressDialog.show(MainActivity.this, "",
                 getResources().getString(R.string.waiting), true);
@@ -184,18 +190,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         }
     }
 
-    private void updateValuesFromBundle(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            return;
+    //Location finding methods
+    public static Location getLastLocation() {
+        if (MainActivity.lastLocation == null) {
+            MainActivity.lastLocation = new Location("");
         }
-
-        // Update the value of mRequestingLocationUpdates from the Bundle.
-        if (savedInstanceState.keySet().contains(REQUESTING_LOCATION_UPDATES_KEY)) {
-            mRequestingLocationUpdates = savedInstanceState.getBoolean(
-                    REQUESTING_LOCATION_UPDATES_KEY);
-        }
-
-        updateLocation();
+        return MainActivity.lastLocation;
     }
 
     private void updateLocation() {
@@ -294,17 +294,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     private void stopLocationUpdates() {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
         mRequestingLocationUpdates = true;
-    }
-
-    private File getTempFile(Context context, String url) {
-        File file = null;
-        try {
-            String fileName = Uri.parse(url).getLastPathSegment();
-            file = File.createTempFile(fileName, null, context.getCacheDir());
-        } catch (IOException e) {
-            // Error while creating file
-        }
-        return file;
     }
 
     @Override
