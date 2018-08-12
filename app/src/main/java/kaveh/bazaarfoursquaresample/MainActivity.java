@@ -156,8 +156,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             mRequestingLocationUpdates = savedInstanceState.getBoolean(
                     REQUESTING_LOCATION_UPDATES_KEY);
         }
-
-        updateLocation();
     }
 
     //Offline support methods
@@ -199,13 +197,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     }
 
     private void writeDatatoCache(List<Item> data) {
-        System.out.println("<>>>>" + data.size());
         Gson gson = new Gson();
         String json;
         SharedPreferences.Editor editor = sharedPref.edit();
         if (MainActivity.page == 0) {
             json = gson.toJson(data);
-            System.out.println(">>>>>>>> First Page");
         } else {
             String mListData = sharedPref.getString(getString(R.string.cache_list_data), "");
             if (!mListData.equals("") && mListData.length() > 1) {
@@ -215,11 +211,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
                 List<Item> mData = gTmp.fromJson(mListData, type);
                 mData.addAll(data);
                 json = gson.toJson(mData);
-                System.out.println(">>>>>>>>>" + mData.size());
-                System.out.println(">>>>>>>>> Add to Prev Page");
             } else {
                 json = gson.toJson(data);
-                System.out.println(">>>>>>>>> kharabi in adding");
             }
         }
         editor.putString(getString(R.string.cache_list_data), json);
@@ -418,6 +411,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         if (mRequestingLocationUpdates) {
             startLocationUpdates();
         }
+        updateLocation();
     }
 
     @Override
